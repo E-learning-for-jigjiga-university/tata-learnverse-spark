@@ -1,9 +1,6 @@
-
 import { Link } from 'react-router-dom';
-
 const Footer = () => {
-  return (
-    <footer className="bg-tata-soft-gray py-16">
+  return <footer className="bg-tata-soft-gray py-16">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -68,11 +65,7 @@ const Footer = () => {
             <h3 className="font-poppins font-semibold text-lg mb-4">Subscribe</h3>
             <p className="text-gray-600 mb-4">Subscribe to our newsletter to get updates on new courses and features.</p>
             <div className="flex">
-              <input 
-                type="email" 
-                placeholder="Your email"
-                className="px-4 py-2 flex-1 rounded-l-md border border-gray-300 focus:outline-none focus:border-tata-orange"
-              />
+              <input type="email" placeholder="Your email" className="px-4 py-2 flex-1 rounded-l-md border border-gray-300 focus:outline-none focus:border-tata-orange" />
               <button className="bg-tata-orange hover:bg-tata-orange/90 text-white px-4 py-2 rounded-r-md transition-colors">
                 Subscribe
               </button>
@@ -81,7 +74,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between gap-4">
-          <p className="text-gray-500 text-sm">© 2025 TaTa LearnVerse. All rights reserved.</p>
+          <p className="text-gray-500 text-sm">© 2025 TaTa E-learning. All rights reserved.</p>
           <div className="flex gap-4">
             <a href="#" className="text-gray-500 hover:text-tata-orange text-sm transition-colors">Privacy Policy</a>
             <a href="#" className="text-gray-500 hover:text-tata-orange text-sm transition-colors">Terms of Service</a>
@@ -89,8 +82,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
