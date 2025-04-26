@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+
 const About = () => {
   const teamMembers = [{
     name: 'Jennifer Parker',
@@ -24,19 +25,21 @@ const About = () => {
     image: 'https://randomuser.me/api/portraits/men/7.jpg',
     bio: 'Digital marketing expert specializing in education technology and e-learning.'
   }];
+
   const stats = [{
-    number: '5M+',
+    number: '150+',
     description: 'Active Students'
   }, {
-    number: '10K+',
+    number: '20+',
     description: 'Courses Available'
   }, {
-    number: '200+',
+    number: '5+',
     description: 'Expert Instructors'
   }, {
-    number: '15+',
+    number: '3+',
     description: 'Years of Experience'
   }];
+
   const values = [{
     title: 'Innovation',
     description: 'We continuously innovate our platform and teaching methods to provide the best learning experience.',
@@ -62,9 +65,11 @@ const About = () => {
           <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
         </svg>
   }];
+
   useEffect(() => {
     document.title = 'About Us | TaTa LearnVerse';
   }, []);
+
   return <div className="min-h-screen flex flex-col">
       <Navbar />
       
@@ -216,4 +221,5 @@ const About = () => {
       <Footer />
     </div>;
 };
+
 export default About;
