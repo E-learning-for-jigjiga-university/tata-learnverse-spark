@@ -57,7 +57,7 @@ const DashboardLayout = ({ children, title, navLinks, activeLink }: DashboardLay
           <div className="p-6">
             <Link to="/" className="flex items-center gap-2">
               <span className="text-2xl font-bold font-poppins">
-                Ta<span className="text-tata-orange">Ta</span>
+                JIgJiga <span className="text-tata-orange">University</span>
               </span>
             </Link>
           </div>
@@ -120,7 +120,7 @@ const DashboardLayout = ({ children, title, navLinks, activeLink }: DashboardLay
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center gap-2">
               <span className="text-xl font-bold font-poppins">
-                Ta<span className="text-tata-orange">Ta</span>
+                JIgJiga <span className="text-tata-orange">University</span>
               </span>
             </Link>
             

@@ -32,7 +32,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <span className="text-2xl font-bold font-poppins text-foreground">
-            Ta<span className="text-tata-orange">Ta</span>
+            JIgJiga <span className="text-tata-orange">University</span>
           </span>
         </Link>
         
