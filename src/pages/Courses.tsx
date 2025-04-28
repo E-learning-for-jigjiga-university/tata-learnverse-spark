@@ -103,7 +103,7 @@ const Courses = () => {
   ];
 
   useEffect(() => {
-    document.title = 'Courses | TaTa LearnVerse';
+    document.title = 'Courses | JIgJiga University';
   }, []);
 
   return (
@@ -203,13 +203,11 @@ const Courses = () => {
               Ready to Start Learning?
             </h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto">
-              Join thousands of students who are already learning and growing with TaTa LearnVerse.
+              Join thousands of students who are already learning and growing with JIgJiga University.
             </p>
             <Link 
               to="/signup"
               className="btn bg-white hover:bg-gray-100 text-tata-orange btn-lg"
-              target="_blank" 
-              rel="noopener noreferrer"
             >
               Get Started Today
             </Link>

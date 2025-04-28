@@ -38,8 +38,6 @@ const CourseCard = ({ id, title, instructor, level, duration, category, image }:
           <Link 
             to={`/courses/${id}`}
             className="text-tata-orange font-medium hover:text-tata-orange/80 transition-colors"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             View Details →
           </Link>

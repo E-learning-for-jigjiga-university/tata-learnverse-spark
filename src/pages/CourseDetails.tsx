@@ -20,7 +20,6 @@ const CourseDetails = () => {
     students: 1543,
     rating: 4.8,
     reviews: 246,
-    price: 49.99,
     category: 'Development',
     image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
     description: 'Learn the fundamentals of web development including HTML, CSS, and JavaScript. This course is designed for beginners who want to start their journey into web development. You\'ll learn how to create responsive websites and gain a strong foundation in frontend development.',
@@ -65,7 +64,7 @@ const CourseDetails = () => {
   };
 
   useEffect(() => {
-    document.title = `${course.title} | TaTa LearnVerse`;
+    document.title = `${course.title} | JIgJiga University`;
   }, [course.title]);
 
   return (
@@ -81,8 +80,6 @@ const CourseDetails = () => {
                 <Link 
                   to="/courses"
                   className="text-gray-600 hover:text-tata-orange transition-colors"
-                  target="_blank" 
-                  rel="noopener noreferrer"
                 >
                   Courses
                 </Link>
@@ -154,11 +151,8 @@ const CourseDetails = () => {
                 </div>
                 
                 <div className="flex gap-4">
-                  <button className="btn btn-primary btn-lg">
-                    Enroll Now for ${course.price}
-                  </button>
                   <button className="btn btn-secondary btn-lg">
-                    Add to Wishlist
+                    More Information
                   </button>
                 </div>
               </div>
@@ -299,15 +293,6 @@ const CourseDetails = () => {
                     <span>Certificate of completion</span>
                   </li>
                 </ul>
-                
-                <div className="mt-6">
-                  <button className="w-full btn btn-primary btn-lg mb-3">
-                    Enroll Now for ${course.price}
-                  </button>
-                  <p className="text-sm text-center text-gray-500">
-                    30-Day Money-Back Guarantee
-                  </p>
-                </div>
               </div>
             </div>
           </div>
