@@ -7,6 +7,7 @@ import { ThemeProvider } from "next-themes";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+import DashboardRedirect from "./components/DashboardRedirect";
 
 // Landing Pages
 import Index from "./pages/Index";
@@ -79,6 +80,9 @@ const App = () => (
               <Route path="/unauthorized" element={<Unauthorized />} />
               <Route path="/courses" element={<Courses />} />
               <Route path="/courses/:id" element={<CourseDetails />} />
+              
+              {/* Dashboard Redirect Route */}
+              <Route path="/dashboard" element={<DashboardRedirect />} />
               
               {/* Student Routes */}
               <Route 
