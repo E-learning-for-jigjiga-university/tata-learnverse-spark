@@ -20,9 +20,11 @@ const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
       <div className="container mx-auto px-4 py-6">
         <div className="flex justify-between items-center mb-8">
           <Link to="/" className="flex items-center gap-2" onClick={onClose}>
-            <span className="text-2xl font-bold font-poppins text-foreground">
-              JIgJiga <span className="text-tata-orange">University</span>
-            </span>
+            <img 
+              src="/lovable-uploads/145a2051-fa4b-4136-9797-fd77c15f5e01.png" 
+              alt="JigJiga University Logo" 
+              className="h-12 w-auto"
+            />
           </Link>
           
           <Button 
