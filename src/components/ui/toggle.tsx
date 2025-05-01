@@ -1,3 +1,4 @@
+
 import * as React from "react"
 import * as TogglePrimitive from "@radix-ui/react-toggle"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -35,6 +36,7 @@ const Toggle = React.forwardRef<
     ref={ref}
     className={cn(toggleVariants({ variant, size, className }))}
     {...props}
+    aria-label={props["aria-label"] || "Toggle"}
   />
 ))
 
