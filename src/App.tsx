@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -22,6 +21,17 @@ import Unauthorized from "./pages/Auth/Unauthorized";
 // Course Related Pages
 import Courses from "./pages/Courses";
 import CourseDetails from "./pages/CourseDetails";
+
+// Resource Pages
+import Blog from "./pages/resources/Blog";
+import Documentation from "./pages/resources/Documentation";
+import HelpCenter from "./pages/resources/HelpCenter";
+import Community from "./pages/resources/Community";
+
+// Policy Pages
+import PrivacyPolicy from "./pages/policies/PrivacyPolicy";
+import TermsOfService from "./pages/policies/TermsOfService";
+import CookiePolicy from "./pages/policies/CookiePolicy";
 
 // Dashboard Pages for Different Roles
 import StudentDashboard from "./pages/Student/Dashboard";
@@ -80,6 +90,17 @@ const App = () => (
               <Route path="/unauthorized" element={<Unauthorized />} />
               <Route path="/courses" element={<Courses />} />
               <Route path="/courses/:id" element={<CourseDetails />} />
+              
+              {/* Resource Routes */}
+              <Route path="/resources/blog" element={<Blog />} />
+              <Route path="/resources/documentation" element={<Documentation />} />
+              <Route path="/resources/help" element={<HelpCenter />} />
+              <Route path="/resources/community" element={<Community />} />
+              
+              {/* Policy Routes */}
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/cookies" element={<CookiePolicy />} />
               
               {/* Dashboard Redirect Route */}
               <Route path="/dashboard" element={<DashboardRedirect />} />
