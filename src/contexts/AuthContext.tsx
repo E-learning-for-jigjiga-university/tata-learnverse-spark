@@ -23,6 +23,9 @@ interface AuthContextType {
   signup: (name: string, email: string, password: string, role: UserRole) => Promise<void>;
 }
 
+// API base URL - replace with your actual API endpoint when ready
+const API_BASE_URL = process.env.API_URL || 'http://localhost:8000/api';
+
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -32,20 +35,54 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const { toast } = useToast();
 
   useEffect(() => {
-    // Check for stored user data on component mount
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-    setIsLoading(false);
+    // Check for stored auth token on component mount
+    const checkAuth = async () => {
+      const storedToken = localStorage.getItem('authToken');
+      if (storedToken) {
+        try {
+          // This will be replaced with an actual API call to verify the token
+          // For now, we'll just use the stored user data
+          const storedUser = localStorage.getItem('user');
+          if (storedUser) {
+            setUser(JSON.parse(storedUser));
+          }
+        } catch (error) {
+          console.error('Auth verification error:', error);
+          localStorage.removeItem('authToken');
+          localStorage.removeItem('user');
+        }
+      }
+      setIsLoading(false);
+    };
+    
+    checkAuth();
   }, []);
 
   const login = async (email: string, password: string) => {
     setIsLoading(true);
     try {
-      // This is a mock login for front-end only
-      // Will be replaced with actual backend call later
+      // This will be replaced with an actual API call
+      // Example of how the API integration would look:
+      /*
+      const response = await fetch(`${API_BASE_URL}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
       
+      if (!response.ok) {
+        throw new Error('Login failed');
+      }
+      
+      const data = await response.json();
+      const { user, token } = data;
+      
+      localStorage.setItem('authToken', token);
+      localStorage.setItem('user', JSON.stringify(user));
+      setUser(user);
+      */
+      
+      // For now, using the mock implementation for development
       // Find which role the user has based on email for demo purposes
       let role: UserRole = 'student'; // Default
       if (email.includes('admin')) {
@@ -58,7 +95,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         role = 'discussionModerator';
       }
       
-      // Mock user object
+      // Mock user object and token
       const mockUser: User = {
         id: `user-${Date.now()}`,
         name: email.split('@')[0],
@@ -67,8 +104,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         avatar: `https://randomuser.me/api/portraits/${Math.random() > 0.5 ? 'men' : 'women'}/${Math.floor(Math.random() * 10)}.jpg`,
       };
       
-      setUser(mockUser);
+      const mockToken = `mock-token-${Date.now()}`;
+      
+      localStorage.setItem('authToken', mockToken);
       localStorage.setItem('user', JSON.stringify(mockUser));
+      setUser(mockUser);
       
       toast({
         title: "Login Successful",
@@ -107,22 +147,66 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem('user');
-    toast({
-      title: "Logged Out",
-      description: "You have been successfully logged out.",
-    });
-    navigate('/login');
+  const logout = async () => {
+    try {
+      // This will be replaced with an actual API call if needed
+      // Example of how the API integration would look:
+      /*
+      const token = localStorage.getItem('authToken');
+      if (token) {
+        await fetch(`${API_BASE_URL}/auth/logout`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        });
+      }
+      */
+      
+      setUser(null);
+      localStorage.removeItem('authToken');
+      localStorage.removeItem('user');
+      toast({
+        title: "Logged Out",
+        description: "You have been successfully logged out.",
+      });
+      navigate('/login');
+    } catch (error) {
+      console.error('Logout error:', error);
+      // Still clear local data even if the API call fails
+      setUser(null);
+      localStorage.removeItem('authToken');
+      localStorage.removeItem('user');
+      navigate('/login');
+    }
   };
 
   const signup = async (name: string, email: string, password: string, role: UserRole) => {
     setIsLoading(true);
     try {
-      // This is a mock signup for front-end only
-      // Will be replaced with actual backend call later
+      // This will be replaced with an actual API call
+      // Example of how the API integration would look:
+      /*
+      const response = await fetch(`${API_BASE_URL}/auth/signup`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, password, role })
+      });
       
+      if (!response.ok) {
+        throw new Error('Signup failed');
+      }
+      
+      const data = await response.json();
+      const { user, token } = data;
+      
+      localStorage.setItem('authToken', token);
+      localStorage.setItem('user', JSON.stringify(user));
+      setUser(user);
+      */
+      
+      // For now, using the mock implementation
       const mockUser: User = {
         id: `user-${Date.now()}`,
         name,
@@ -131,8 +215,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         avatar: `https://randomuser.me/api/portraits/${Math.random() > 0.5 ? 'men' : 'women'}/${Math.floor(Math.random() * 10)}.jpg`,
       };
       
-      setUser(mockUser);
+      const mockToken = `mock-token-${Date.now()}`;
+      
+      localStorage.setItem('authToken', mockToken);
       localStorage.setItem('user', JSON.stringify(mockUser));
+      setUser(mockUser);
       
       toast({
         title: "Account Created",
