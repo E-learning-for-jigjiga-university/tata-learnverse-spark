@@ -22,7 +22,7 @@ const DashboardRedirect = () => {
     case 'discussionModerator':
       return <Navigate to="/moderator/dashboard" />;
     default:
-      // Fallback for unknown roles
+      // Fallback for unknown roles or guest users
       return <Navigate to="/login" />;
   }
 };
