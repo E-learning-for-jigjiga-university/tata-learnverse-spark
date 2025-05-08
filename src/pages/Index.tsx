@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -133,7 +134,7 @@ const Index = () => {
     },
     {
       question: 'How do certifications work?',
-      answer: 'Upon completing a course, you'll receive a digital certificate that you can share on LinkedIn or other platforms. Our certificates are recognized by industry leaders and can help boost your professional profile.',
+      answer: "Upon completing a course, you'll receive a digital certificate that you can share on LinkedIn or other platforms. Our certificates are recognized by industry leaders and can help boost your professional profile.",
     },
   ];
 
