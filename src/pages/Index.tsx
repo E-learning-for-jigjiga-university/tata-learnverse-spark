@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -6,6 +5,10 @@ import FeatureCard from '../components/FeatureCard';
 import CourseCard from '../components/CourseCard';
 import TestimonialCard from '../components/TestimonialCard';
 import PartnerLogos from '../components/PartnerLogos';
+import StatCard from '../components/StatCard';
+import FaqAccordion from '../components/FaqAccordion';
+import { Button } from "@/components/ui/button";
+import { ArrowRight, BookOpen, Users, Award } from "lucide-react";
 
 const Index = () => {
   const features = [
@@ -109,6 +112,31 @@ const Index = () => {
     },
   ];
 
+  const stats = [
+    { label: 'Active Students', value: '10,000+', icon: <Users className="w-6 h-6 text-tata-orange" /> },
+    { label: 'Courses Available', value: '250+', icon: <BookOpen className="w-6 h-6 text-tata-purple" /> },
+    { label: 'Certifications Awarded', value: '5,000+', icon: <Award className="w-6 h-6 text-tata-blue" /> },
+  ];
+
+  const faqs = [
+    {
+      question: 'How do I get started with TaTa?',
+      answer: 'Simply sign up for an account, choose your interests, and start exploring our curated courses. Our personalized dashboard will help you track your progress and recommend relevant learning materials.',
+    },
+    {
+      question: 'Can I access courses on mobile devices?',
+      answer: 'Yes! TaTa is fully responsive and works on all devices. You can learn on your computer, tablet, or smartphone, making it convenient to continue your education wherever you are.',
+    },
+    {
+      question: 'Are there any free courses available?',
+      answer: 'Absolutely. We offer a selection of free courses to help you get started. You can also try premium courses with our 7-day free trial before committing to a subscription.',
+    },
+    {
+      question: 'How do certifications work?',
+      answer: 'Upon completing a course, you'll receive a digital certificate that you can share on LinkedIn or other platforms. Our certificates are recognized by industry leaders and can help boost your professional profile.',
+    },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -162,6 +190,22 @@ const Index = () => {
         </div>
       </section>
       
+      {/* Stats Section */}
+      <section className="py-14 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {stats.map((stat, index) => (
+              <StatCard 
+                key={index}
+                label={stat.label}
+                value={stat.value}
+                icon={stat.icon}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+      
       {/* Partners Section */}
       <PartnerLogos />
       
@@ -186,6 +230,32 @@ const Index = () => {
         </div>
       </section>
       
+      {/* How It Works Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl mb-4">How TaTa Works</h2>
+            <p className="text-gray-600">Simple steps to get started with your learning journey</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { number: '01', title: 'Create Account', description: 'Sign up and complete your profile to personalize your learning experience.' },
+              { number: '02', title: 'Choose Courses', description: 'Browse through our catalog and select courses that match your interests and goals.' },
+              { number: '03', title: 'Track Progress', description: 'Monitor your advancement with detailed analytics and achieve your learning objectives.' },
+            ].map((step, index) => (
+              <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-tata-orange/10 text-tata-orange font-bold text-lg mb-4">
+                  {step.number}
+                </div>
+                <h3 className="font-poppins text-xl font-medium mb-2">{step.title}</h3>
+                <p className="text-gray-600">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
       {/* Courses Section */}
       <section className="py-20 bg-tata-soft-gray">
         <div className="container mx-auto px-4">
@@ -193,11 +263,9 @@ const Index = () => {
             <h2 className="font-poppins font-bold text-3xl">Featured Courses</h2>
             <Link 
               to="/courses" 
-              className="text-tata-orange hover:text-tata-orange/80 font-medium transition-colors"
-              target="_blank" 
-              rel="noopener noreferrer"
+              className="text-tata-orange hover:text-tata-orange/80 font-medium transition-colors flex items-center gap-2"
             >
-              View All →
+              View All <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
           
@@ -205,6 +273,12 @@ const Index = () => {
             {featuredCourses.map((course) => (
               <CourseCard key={course.id} {...course} />
             ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+            <Button asChild variant="outline" size="lg" className="bg-white">
+              <Link to="/courses">Explore All Courses</Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -232,6 +306,20 @@ const Index = () => {
         </div>
       </section>
       
+      {/* FAQ Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl mb-4">Frequently Asked Questions</h2>
+            <p className="text-gray-600">Get answers to common questions about our learning platform</p>
+          </div>
+          
+          <div className="max-w-3xl mx-auto">
+            <FaqAccordion faqs={faqs} />
+          </div>
+        </div>
+      </section>
+      
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-tata-orange/90 to-tata-blue/90 text-white">
         <div className="container mx-auto px-4">
@@ -245,8 +333,6 @@ const Index = () => {
             <Link 
               to="/signup" 
               className="btn bg-white hover:bg-gray-100 text-tata-orange btn-lg"
-              target="_blank" 
-              rel="noopener noreferrer"
             >
               Join TaTa Today
             </Link>
