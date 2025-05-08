@@ -95,21 +95,21 @@ const Index = () => {
       role: 'Frontend Developer',
       company: 'TechCorp',
       image: 'https://randomuser.me/api/portraits/women/1.jpg',
-      content: 'TaTa has completely transformed my learning journey. The interactive courses and progress tracking features have helped me stay motivated and achieve my goals faster.',
+      content: 'JigJiga University has completely transformed my learning journey. The interactive courses and progress tracking features have helped me stay motivated and achieve my goals faster.',
     },
     {
       name: 'David Chen',
       role: 'UI/UX Designer',
       company: 'DesignHub',
       image: 'https://randomuser.me/api/portraits/men/2.jpg',
-      content: 'As a designer, I found TaTa\'s courses to be incredibly well-structured and comprehensive. The platform\'s interface is also a joy to use with its clean design.',
+      content: 'As a designer, I found JigJiga University\'s courses to be incredibly well-structured and comprehensive. The platform\'s interface is also a joy to use with its clean design.',
     },
     {
       name: 'Sophia Rodriguez',
       role: 'Data Analyst',
       company: 'DataInsights',
       image: 'https://randomuser.me/api/portraits/women/3.jpg',
-      content: 'The data science courses on TaTa are top-notch. The instructors are experts in their field and the community support is phenomenal.',
+      content: 'The data science courses on JigJiga University are top-notch. The instructors are experts in their field and the community support is phenomenal.',
     },
   ];
 
@@ -121,12 +121,12 @@ const Index = () => {
 
   const faqs = [
     {
-      question: 'How do I get started with TaTa?',
+      question: 'How do I get started with JigJiga University?',
       answer: 'Simply sign up for an account, choose your interests, and start exploring our curated courses. Our personalized dashboard will help you track your progress and recommend relevant learning materials.',
     },
     {
       question: 'Can I access courses on mobile devices?',
-      answer: 'Yes! TaTa is fully responsive and works on all devices. You can learn on your computer, tablet, or smartphone, making it convenient to continue your education wherever you are.',
+      answer: 'Yes! JigJiga University is fully responsive and works on all devices. You can learn on your computer, tablet, or smartphone, making it convenient to continue your education wherever you are.',
     },
     {
       question: 'Are there any free courses available?',
@@ -235,7 +235,7 @@ const Index = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="font-poppins font-bold text-3xl md:text-4xl mb-4">How TaTa Works</h2>
+            <h2 className="font-poppins font-bold text-3xl md:text-4xl mb-4">How JigJiga University Works</h2>
             <p className="text-gray-600">Simple steps to get started with your learning journey</p>
           </div>
           
@@ -289,7 +289,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="font-poppins font-bold text-3xl md:text-4xl mb-4">What Our Students Say</h2>
-            <p className="text-gray-600">Discover how TaTa has helped thousands of students achieve their learning goals</p>
+            <p className="text-gray-600">Discover how JigJiga University has helped thousands of students achieve their learning goals</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -335,7 +335,7 @@ const Index = () => {
               to="/signup" 
               className="btn bg-white hover:bg-gray-100 text-tata-orange btn-lg"
             >
-              Join TaTa Today
+              Join JigJiga University Today
             </Link>
           </div>
         </div>
