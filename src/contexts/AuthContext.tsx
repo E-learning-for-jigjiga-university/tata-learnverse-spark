@@ -24,7 +24,7 @@ interface AuthContextType {
 }
 
 // API base URL - replace with your actual API endpoint when ready
-const API_BASE_URL = process.env.API_URL || 'http://localhost:8000/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
